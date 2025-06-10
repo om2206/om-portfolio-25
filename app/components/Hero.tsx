@@ -184,7 +184,7 @@ const Hero = () => {
                   </p>
                   
                   <p className="text-lg text-gray-300 leading-relaxed font-ibm-plex-serif">
-                    I'm an Engineering Mechanics student at the University of Illinois with a passion for mechanical design, manufacturing, and engineering. I'm excited to leverage my skills and knowledge to explore new frontiers in technology and contribute to building a better future.
+                    I'm a rising senior at the University of Illinois Urbana-Champaign, majoring in Engineering Mechanics with a minor in Computer Science. I'm passionate about designing and building innovative systems—both digitally and hands-on—often bringing ideas to life through 3D printing and mechanical prototyping.
                   </p>
                 </div>
               </div>

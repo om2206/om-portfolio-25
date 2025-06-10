@@ -125,10 +125,10 @@ const Hero = () => {
           <div
             className="flex gap-4 justify-center"
           >
-            <a href="#about" className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors font-semibold">
+            <a href="#about" className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition-colors font-semibold font-ibm-plex-serif">
               About Me
             </a>
-            <a href="#projects" className="px-6 py-3 border border-gray-400 text-gray-200 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors font-semibold">
+            <a href="#projects" className="px-6 py-3 border border-gray-400 text-gray-200 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-colors font-semibold font-ibm-plex-serif">
               View Projects
             </a>
           </div>

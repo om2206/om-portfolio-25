@@ -1,9 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { motion } from 'framer-motion';
 
 const GearSystem = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div className="absolute inset-0" />;
+  }
+
   return (
     <>
       {/* Large Spiral Gear - Center Left (Odd = Clockwise) */}

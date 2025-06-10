@@ -205,8 +205,7 @@ const Hero = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Hub-Carrier Project Card */}
-              <div
-              >
+              <div>
                 <ProjectCard
                   title="Hub-Carrier Module"
                   summary="Preload system, rotary sealing, and structural optimization for a lightweight, high-efficiency drivetrain module."
@@ -349,9 +348,9 @@ const Hero = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-white font-ibm-plex-serif">LinkedIn</h3>
                   </div>
-                  <a
+                  <a 
                     href="https://www.linkedin.com/in/omkar-gandhi/"
-                    target="_blank"
+                    target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition-colors text-lg font-ibm-plex-serif"
                   >

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import GearSystem from './GearSystem';
+import WorldMapBackground from './WorldMapBackground';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -143,8 +144,11 @@ const Hero = () => {
       </div>
 
       {/* About Me Section */}
-      <section id="about" className="min-h-screen bg-neutral-900 py-32">
-        <div className="container mx-auto px-6">
+      <section id="about" className="min-h-screen bg-neutral-900 py-32 relative">
+        {/* World Map Background */}
+        <WorldMapBackground />
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-16 text-center font-ibm-plex-serif"

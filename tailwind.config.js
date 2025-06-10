@@ -19,6 +19,7 @@ module.exports = {
         'blob': 'blob 7s infinite',
         typewriter: 'typewriter 4s steps(20) 1s 1 normal both',
         blink: 'blink 1s infinite',
+        'fly': 'fly 20s ease-in-out infinite',
       },
       keyframes: {
         blob: {
@@ -50,6 +51,23 @@ module.exports = {
           '51%, 100%': { 
             opacity: '0'
           }
+        },
+        fly: {
+          '0%': {
+            transform: 'translate(0, 0) rotate(0deg)',
+          },
+          '25%': {
+            transform: 'translate(-150px, -30px) rotate(-10deg)',
+          },
+          '50%': {
+            transform: 'translate(-280px, -20px) rotate(-5deg)',
+          },
+          '75%': {
+            transform: 'translate(-320px, -5px) rotate(0deg)',
+          },
+          '100%': {
+            transform: 'translate(-370px, -10px) rotate(5deg)',
+          },
         },
       },
       colors: {

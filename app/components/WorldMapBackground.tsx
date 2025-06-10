@@ -1,8 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WorldMapBackground = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
       <svg
@@ -56,11 +62,11 @@ const WorldMapBackground = () => {
           strokeWidth="3"
           strokeDasharray="8,12"
           opacity="0.7"
-          className="animate-pulse"
+          className={isClient ? "animate-pulse" : ""}
         />
 
-        {/* Animated Airplane */}
-        <g className="animate-[fly_20s_ease-in-out_infinite]">
+        {/* Animated Airplane - only animate after client mount */}
+        <g className={isClient ? "animate-[fly_20s_ease-in-out_infinite]" : ""}>
           <g transform="translate(650,150)">
             <path
               d="M 0 0 L -8 -2 L -6 0 L -8 2 Z M -3 0 L -10 -4 M -3 0 L -10 4"
@@ -72,12 +78,12 @@ const WorldMapBackground = () => {
           </g>
         </g>
 
-        {/* Location markers */}
+        {/* Location markers - only animate after client mount */}
         <circle cx="650" cy="150" r="3" fill="#666" opacity="0.6">
-          <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+          {isClient && <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />}
         </circle>
         <circle cx="280" cy="140" r="3" fill="#666" opacity="0.6">
-          <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="1s" />
+          {isClient && <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="1s" />}
         </circle>
 
         {/* Grid overlay for subtle texture */}

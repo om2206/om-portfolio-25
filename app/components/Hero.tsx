@@ -156,30 +156,15 @@ const Hero = () => {
               <div 
                 className="flex justify-center lg:justify-end"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
-                  {/* Main Profile Image */}
-                  <div className="relative md:col-span-2">
-                    <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-500/20 transition-all duration-300 hover:ring-blue-500/40 hover:scale-105 mx-auto">
-                      <img
-                        src="/profile.jpeg"
-                        alt="Omkar Gandhi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/10 to-purple-500/10 pointer-events-none" />
+                <div className="relative">
+                  <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-500/20 transition-all duration-300 hover:ring-blue-500/40 hover:scale-105">
+                    <img
+                      src="/profile.jpeg"
+                      alt="Omkar Gandhi"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  
-                  {/* Angle Grinder Image */}
-                  <div className="relative md:col-span-2 mt-4">
-                    <div className="w-full max-w-sm mx-auto rounded-xl overflow-hidden shadow-2xl ring-4 ring-blue-500/20 transition-all duration-300 hover:ring-blue-500/40 hover:scale-105">
-                      <img
-                        src="/anglegrinder.jpg"
-                        alt="Engineering work with angle grinder"
-                        className="w-full h-64 object-cover"
-                      />
-                    </div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-blue-500/10 to-purple-500/10 pointer-events-none" />
-                  </div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/10 to-purple-500/10 pointer-events-none" />
                 </div>
               </div>
 

@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 // import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import GearSystem from './GearSystem';
-import WorldMapBackground from './WorldMapBackground';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -144,9 +143,32 @@ const Hero = () => {
       </div>
 
       {/* About Me Section */}
-      <section id="about" className="min-h-screen bg-neutral-900 py-32 relative">
-        {/* World Map Background */}
-        <WorldMapBackground />
+      <section id="about" className="min-h-screen bg-neutral-900 py-32 relative overflow-hidden">
+        {/* Simple Geometric Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Floating Triangles */}
+          <div className="absolute top-20 left-10 w-6 h-6 border border-gray-600 opacity-20 rotate-12 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+          <div className="absolute top-40 right-20 w-8 h-8 border border-blue-500 opacity-15 -rotate-45 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)', animationDelay: '1s'}}></div>
+          <div className="absolute bottom-32 left-1/4 w-4 h-4 border border-gray-500 opacity-25 rotate-90 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)', animationDelay: '2s'}}></div>
+          
+          {/* Floating Circles */}
+          <div className="absolute top-1/3 right-1/3 w-12 h-12 border border-gray-600 rounded-full opacity-10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/4 right-10 w-8 h-8 border border-blue-400 rounded-full opacity-15 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute top-1/2 left-20 w-6 h-6 border border-gray-500 rounded-full opacity-20 animate-pulse" style={{animationDelay: '2.5s'}}></div>
+          
+          {/* Hexagons */}
+          <div className="absolute top-1/4 left-1/3 w-10 h-10 border border-gray-600 opacity-15 rotate-12 animate-pulse" style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)', animationDelay: '3s'}}></div>
+          <div className="absolute bottom-40 right-1/4 w-6 h-6 border border-blue-500 opacity-20 -rotate-12 animate-pulse" style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)', animationDelay: '0.8s'}}></div>
+          
+          {/* Small Squares */}
+          <div className="absolute top-60 right-40 w-3 h-3 border border-gray-500 opacity-25 rotate-45 animate-pulse" style={{animationDelay: '1.2s'}}></div>
+          <div className="absolute bottom-60 left-40 w-4 h-4 border border-gray-600 opacity-15 -rotate-45 animate-pulse" style={{animationDelay: '2.8s'}}></div>
+          
+          {/* Subtle Grid Dots */}
+          <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-gray-600 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1.8s'}}></div>
+          <div className="absolute top-1/3 left-2/3 w-1 h-1 bg-blue-500 rounded-full opacity-25 animate-pulse" style={{animationDelay: '2.2s'}}></div>
+          <div className="absolute bottom-1/3 left-1/5 w-1 h-1 bg-gray-500 rounded-full opacity-35 animate-pulse" style={{animationDelay: '0.3s'}}></div>
+        </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">

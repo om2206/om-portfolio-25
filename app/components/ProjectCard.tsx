@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ProjectCardProps {
   title: string;
@@ -19,52 +20,78 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   projectSlug,
 }) => {
   return (
-    <div
+    <motion.div
       className="group"
+      whileHover={{ 
+        scale: 1.02,
+        rotateX: 5,
+        rotateY: 5,
+        z: 50
+      }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 30,
+        duration: 0.3
+      }}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: 1000
+      }}
     >
-      <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700 hover:border-blue-500/50 transition-colors duration-300">
+      <motion.div 
+        className="relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700 hover:border-blue-500/50 transition-colors duration-300"
+        whileHover={{
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(59, 130, 246, 0.3)"
+        }}
+        transition={{ duration: 0.3 }}
+      >
         <div className="relative aspect-video overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 group-hover:from-gray-700 group-hover:to-gray-800 transition-colors" />
           {images.length > 0 && (
-            <img
+            <motion.img
               src={images[0]}
               alt={title}
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             />
           )}
-          <div className="absolute top-4 left-4 bg-blue-600 text-white px-2 py-1 rounded text-xs font-ibm-plex-serif">
-            PROJECT
-          </div>
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-ibm-plex-serif">
+          <motion.h3 
+            className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-ibm-plex-serif"
+            whileHover={{ x: 3 }}
+            transition={{ duration: 0.2 }}
+          >
             {title}
-          </h3>
+          </motion.h3>
           <p className="text-gray-400 mb-4 font-ibm-plex-serif">
             {summary}
           </p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs font-ibm-plex-serif uppercase tracking-wide"
+          <Link href={`/projects/${projectSlug}`}>
+            <motion.div
+              className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-ibm-plex-serif cursor-pointer"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              View Details
+              <motion.svg 
+                className="w-4 h-4 ml-2" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
               >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <a
-            href={`/projects/${projectSlug}`}
-            className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-ibm-plex-serif"
-          >
-            View Details
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </motion.svg>
+            </motion.div>
+          </Link>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

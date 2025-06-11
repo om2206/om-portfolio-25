@@ -24,7 +24,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-8">
             <div className="hidden md:flex space-x-8">
               <a href="#about" className="text-gray-300 hover:text-white transition-colors font-ibm-plex-serif">
-                About
+                About Me
               </a>
               <a href="#projects" className="text-gray-300 hover:text-white transition-colors font-ibm-plex-serif">
                 Projects

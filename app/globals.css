@@ -46,6 +46,26 @@ html {
   animation-delay: 4s;
 }
 
+/* Floating animation for geometric shapes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-8px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px);
+  }
+}
+
+.animate-float {
+  animation: float infinite ease-in-out;
+}
+
 /* Font family utilities */
 .font-radley {
   font-family: var(--font-radley) !important;

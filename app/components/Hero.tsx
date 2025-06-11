@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import GearSystem from './GearSystem';
 
@@ -144,32 +144,6 @@ const Hero = () => {
 
       {/* About Me Section */}
       <section id="about" className="min-h-screen bg-neutral-900 py-32 relative overflow-hidden">
-        {/* Simple Geometric Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Floating Triangles */}
-          <div className="absolute top-20 left-10 w-6 h-6 border border-gray-600 opacity-20 rotate-12 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-          <div className="absolute top-40 right-20 w-8 h-8 border border-blue-500 opacity-15 -rotate-45 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)', animationDelay: '1s'}}></div>
-          <div className="absolute bottom-32 left-1/4 w-4 h-4 border border-gray-500 opacity-25 rotate-90 animate-pulse" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)', animationDelay: '2s'}}></div>
-          
-          {/* Floating Circles */}
-          <div className="absolute top-1/3 right-1/3 w-12 h-12 border border-gray-600 rounded-full opacity-10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-          <div className="absolute bottom-1/4 right-10 w-8 h-8 border border-blue-400 rounded-full opacity-15 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-          <div className="absolute top-1/2 left-20 w-6 h-6 border border-gray-500 rounded-full opacity-20 animate-pulse" style={{animationDelay: '2.5s'}}></div>
-          
-          {/* Hexagons */}
-          <div className="absolute top-1/4 left-1/3 w-10 h-10 border border-gray-600 opacity-15 rotate-12 animate-pulse" style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)', animationDelay: '3s'}}></div>
-          <div className="absolute bottom-40 right-1/4 w-6 h-6 border border-blue-500 opacity-20 -rotate-12 animate-pulse" style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)', animationDelay: '0.8s'}}></div>
-          
-          {/* Small Squares */}
-          <div className="absolute top-60 right-40 w-3 h-3 border border-gray-500 opacity-25 rotate-45 animate-pulse" style={{animationDelay: '1.2s'}}></div>
-          <div className="absolute bottom-60 left-40 w-4 h-4 border border-gray-600 opacity-15 -rotate-45 animate-pulse" style={{animationDelay: '2.8s'}}></div>
-          
-          {/* Subtle Grid Dots */}
-          <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-gray-600 rounded-full opacity-30 animate-pulse" style={{animationDelay: '1.8s'}}></div>
-          <div className="absolute top-1/3 left-2/3 w-1 h-1 bg-blue-500 rounded-full opacity-25 animate-pulse" style={{animationDelay: '2.2s'}}></div>
-          <div className="absolute bottom-1/3 left-1/5 w-1 h-1 bg-gray-500 rounded-full opacity-35 animate-pulse" style={{animationDelay: '0.3s'}}></div>
-        </div>
-        
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <h2 
@@ -245,48 +219,14 @@ const Hero = () => {
               </div>
 
               {/* ETRL Pool Boiling Apparatus Research Project Card */}
-              <div
-                className="group"
-              >
-                <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700 hover:border-blue-500/50 transition-colors duration-300">
-                  <div className="relative aspect-video overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-gray-800 group-hover:from-blue-800 group-hover:to-gray-700 transition-colors flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-2 bg-blue-600 rounded-lg flex items-center justify-center">
-                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                          </svg>
-                        </div>
-                        <p className="text-xs text-gray-300">Calorimeter & Setup Images</p>
-                      </div>
-                    </div>
-                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-2 py-1 rounded text-xs font-ibm-plex-serif">
-                      THERMAL RESEARCH
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-ibm-plex-serif">
-                      ETRL – Pool Boiling Apparatus Research
-                    </h3>
-                    <div className="text-gray-400 mb-4 font-ibm-plex-serif space-y-2 text-sm">
-                      <p>• Worked on a three-phase flow heat exchanger experiment</p>
-                      <p>• Designed a calorimeter and ceramic insulation block</p>
-                      <p>• Developed LabView-based instrumentation setup</p>
-                      <p>• Co-authoring two papers based on findings</p>
-                      <p>• Ongoing testing and validation in summer 2024</p>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {['THERMAL ANALYSIS', 'EXPERIMENTAL DESIGN', 'LABVIEW', 'HEAT TRANSFER', 'INSTRUMENTATION', 'RESEARCH'].map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs font-ibm-plex-serif uppercase tracking-wide"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div>
+                <ProjectCard
+                  title="ETRL – Pool Boiling Apparatus Research"
+                  summary="Advanced thermal research project focused on three-phase flow heat exchanger experiments with calorimeter design and LabView instrumentation."
+                  images={[]}
+                  tags={['THERMAL ANALYSIS', 'EXPERIMENTAL DESIGN', 'LABVIEW', 'HEAT TRANSFER', 'INSTRUMENTATION', 'RESEARCH']}
+                  projectSlug="etrl-pool-boiling"
+                />
               </div>
 
               {/* Project 3 Placeholder */}
@@ -296,9 +236,6 @@ const Hero = () => {
                 <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700 hover:border-blue-500/50 transition-colors duration-300">
                   <div className="relative aspect-video overflow-hidden">
                     <div className="absolute inset-0 bg-neutral-800 group-hover:bg-neutral-700 transition-colors" />
-                    <div className="absolute top-4 left-4 bg-gray-600 text-white px-2 py-1 rounded text-xs font-ibm-plex-serif">
-                      PROJECT 03
-                    </div>
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-ibm-plex-serif">
@@ -307,16 +244,6 @@ const Hero = () => {
                     <p className="text-gray-400 mb-4 font-ibm-plex-serif">
                       Engineering project description will go here
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {['CAD DESIGN', 'ANALYSIS', 'PROTOTYPING'].map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-xs font-ibm-plex-serif uppercase tracking-wide"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>

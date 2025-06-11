@@ -218,34 +218,35 @@ const Hero = () => {
                 />
               </div>
 
-              {/* ETRL Pool Boiling Apparatus Research Project Card */}
+              {/* ETRL Pool Boiling Project Card */}
               <div>
                 <ProjectCard
-                  title="ETRL – Pool Boiling Apparatus Research"
-                  summary="Advanced thermal research project focused on three-phase flow heat exchanger experiments with calorimeter design and LabView instrumentation."
-                  images={[]}
-                  tags={['THERMAL ANALYSIS', 'EXPERIMENTAL DESIGN', 'LABVIEW', 'HEAT TRANSFER', 'INSTRUMENTATION', 'RESEARCH']}
+                  title="ETRL Pool Boiling Research"
+                  summary="Thermal engineering research project investigating pool boiling heat transfer phenomena and critical heat flux mechanisms."
+                  images={[
+                    '/calorie.png',
+                    '/Lab view.png',
+                    '/Setup Images.jpg'
+                  ]}
+                  tags={['THERMAL ENGINEERING', 'RESEARCH', 'HEAT TRANSFER', 'BOILING', 'CRITICAL HEAT FLUX', 'EXPERIMENTAL ANALYSIS']}
                   projectSlug="etrl-pool-boiling"
                 />
               </div>
 
-              {/* Project 3 Placeholder */}
-              <div
-                className="group"
-              >
-                <div className="relative bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700 hover:border-blue-500/50 transition-colors duration-300">
-                  <div className="relative aspect-video overflow-hidden">
-                    <div className="absolute inset-0 bg-neutral-800 group-hover:bg-neutral-700 transition-colors" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-ibm-plex-serif">
-                      Project 3
-                    </h3>
-                    <p className="text-gray-400 mb-4 font-ibm-plex-serif">
-                      Engineering project description will go here
-                    </p>
-                  </div>
-                </div>
+              {/* ME 371 Project Card */}
+              <div>
+                <ProjectCard
+                  title="ME 371 Project"
+                  summary="Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests."
+                  images={[
+                    '/Robot.png',
+                    '/Gear assembly.png',
+                    '/Ball lock cross section.png',
+                    '/Robot Top view.png'
+                  ]}
+                  tags={['ROBOTICS', 'MECHANICAL ENGINEERING', 'GEARBOX DESIGN', 'TESTING', 'PERFORMANCE ANALYSIS', 'AUTOMATION']}
+                  projectSlug="me-371-project"
+                />
               </div>
             </div>
           </div>

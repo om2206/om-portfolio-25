@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ImageModal from '../../components/ImageModal';
 
-export default function HubCarrierModulePage() {
+const ME371ProjectPage = () => {
   const [modalData, setModalData] = useState<{
     isOpen: boolean;
     imageSrc: string;
@@ -32,7 +32,7 @@ export default function HubCarrierModulePage() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-500/30">
         <div className="container mx-auto px-6 py-4">
@@ -66,17 +66,17 @@ export default function HubCarrierModulePage() {
             <h1 
               className="text-4xl md:text-6xl font-bold mb-6 font-ibm-plex-serif"
             >
-              Hub-Carrier Module
+              ME 371 Project
             </h1>
             <p 
               className="text-xl text-gray-300 mb-8 font-ibm-plex-serif"
             >
-              Advanced drivetrain module featuring preload system integration, rotary sealing technology, and structural optimization methodology
+              Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
             </p>
             <div 
               className="flex flex-wrap gap-2 justify-center"
             >
-              {['CAD DESIGN', 'MECHANICAL ENGINEERING', 'GEAR SYSTEMS', 'ASSEMBLY DESIGN', 'STRUCTURAL ANALYSIS', 'TOPOLOGY OPTIMIZATION'].map((tag) => (
+              {['ROBOTICS', 'MECHANICAL ENGINEERING', 'GEARBOX DESIGN', 'TESTING', 'PERFORMANCE ANALYSIS', 'AUTOMATION'].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm font-ibm-plex-serif uppercase tracking-wide"
@@ -93,60 +93,71 @@ export default function HubCarrierModulePage() {
       <section className="py-16 bg-neutral-900">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div 
                 className="group"
+                onClick={() => openModal('/Robot.png', 'ME 371 Robot Design', 'Complete robot assembly with three-speed gearbox system')}
               >
-                <div 
-                  className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer"
-                  onClick={() => openModal('/cross-section-of-corner.jpeg', 'Hub-Carrier Cross Section', 'Cross-sectional view showing internal component arrangement')}
-                >
+                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
                   <img
-                    src="/cross-section-of-corner.jpeg"
-                    alt="Hub-Carrier Cross Section"
+                    src="/Robot.png"
+                    alt="ME 371 Robot Design"
                     className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Cross-sectional view showing internal component arrangement</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Complete robot assembly with three-speed gearbox system</p>
                   </div>
                 </div>
               </div>
 
-              <div
+              <div 
                 className="group"
+                onClick={() => openModal('/Gear assembly.png', 'Three-Speed Gearbox Assembly', 'Advanced three-speed transmission system for optimal performance')}
               >
-                <div 
-                  className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer"
-                  onClick={() => openModal('/exploded-hub-carrier-assembly.jpeg', 'Exploded Hub-Carrier Assembly', 'Exploded assembly view highlighting component relationships')}
-                >
+                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
                   <img
-                    src="/exploded-hub-carrier-assembly.jpeg"
-                    alt="Exploded Hub-Carrier Assembly"
+                    src="/Gear assembly.png"
+                    alt="Three-Speed Gearbox Assembly"
                     className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Exploded assembly view highlighting component relationships</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Advanced three-speed transmission system for optimal performance</p>
                   </div>
                 </div>
               </div>
 
-              <div
+              <div 
                 className="group"
+                onClick={() => openModal('/Ball lock cross section.png', 'Ball Lock Mechanism Cross Section', 'Precision ball lock mechanism for secure gear engagement')}
               >
-                <div 
-                  className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer"
-                  onClick={() => openModal('/seal.png', 'Advanced Rotary Seal Design', 'Advanced rotary seal technology for contamination prevention')}
-                >
+                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
                   <img
-                    src="/seal.png"
-                    alt="Advanced Rotary Seal Design"
+                    src="/Ball lock cross section.png"
+                    alt="Ball Lock Mechanism Cross Section"
                     className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Advanced rotary seal technology for contamination prevention</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Precision ball lock mechanism for secure gear engagement</p>
+                  </div>
+                </div>
+              </div>
+
+              <div 
+                className="group"
+                onClick={() => openModal('/Robot Top view.png', 'Robot Top View Layout', 'Top-down view showing strategic component placement and design')}
+              >
+                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
+                  <img
+                    src="/Robot Top view.png"
+                    alt="Robot Top View Layout"
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm font-ibm-plex-serif">Top-down view showing strategic component placement and design</p>
                   </div>
                 </div>
               </div>
@@ -155,79 +166,78 @@ export default function HubCarrierModulePage() {
         </div>
       </section>
 
-      {/* Technical Overview */}
+      {/* Project Overview */}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 
               className="text-3xl md:text-4xl font-bold mb-12 text-center font-ibm-plex-serif"
             >
-              Engineering Overview
+              Project Overview
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Preload System Integration</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Robot Design & Build</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Engineered a sophisticated preload mechanism to maintain optimal bearing tension and eliminate backlash in the drivetrain. 
-                  The system ensures consistent performance under varying load conditions while extending component lifespan.
+                  Designed and constructed a versatile robot capable of performing multiple tasks requiring different performance characteristics. 
+                  The modular design allows for quick adaptation between speed, agility, and strength-focused operations.
                 </p>
               </div>
 
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Advanced Sealing Technology</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Three-Speed Gearbox</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Implemented advanced rotary sealing solutions to prevent contamination while maintaining smooth operation. 
-                  The seal design balances durability with minimal friction losses for maximum efficiency.
+                  Engineered and implemented a sophisticated three-speed transmission system that enables optimal performance 
+                  across different task requirements. The gearbox provides mechanical advantage for strength tasks while 
+                  maintaining high-speed capabilities for agility challenges.
                 </p>
               </div>
 
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Structural Optimization</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Performance Testing</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Applied advanced topology optimization techniques to achieve maximum strength-to-weight ratio. 
-                  Material distribution was optimized using finite element analysis to reduce mass while maintaining structural integrity.
+                  Conducted comprehensive testing protocols to validate robot performance across all operational modes. 
+                  Testing included speed trials, agility courses, and strength evaluations to ensure consistent 
+                  performance and reliability under various conditions.
                 </p>
               </div>
 
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Manufacturing Considerations</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">System Integration</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Design optimized for modern manufacturing processes including CNC machining and additive manufacturing. 
-                  Assembly sequences were carefully planned to ensure efficient production and maintenance accessibility.
+                  Integrated mechanical, electrical, and control systems to create a cohesive robotic platform. 
+                  The design emphasizes modularity, maintainability, and ease of operation while maximizing 
+                  performance across diverse task requirements.
                 </p>
               </div>
             </div>
 
-            {/* Technical Specifications */}
+            {/* Task Categories */}
             <div
               className="bg-gradient-to-r from-gray-900 to-neutral-900 rounded-xl p-8"
             >
-              <h3 className="text-2xl font-bold mb-6 text-center text-blue-400 font-ibm-plex-serif">Technical Specifications</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <h3 className="text-2xl font-bold mb-6 text-center text-blue-400 font-ibm-plex-serif">Task Categories</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-white mb-2">1.33:1</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Gear Ratio</div>
+                  <div className="text-2xl font-bold text-white mb-2">Speed</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">High-velocity locomotion and rapid traversal capabilities</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-2">175mm</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Center Distance</div>
+                  <div className="text-2xl font-bold text-white mb-2">Agility</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Precise maneuvering and obstacle navigation</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-2">2.5</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Module</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-white mb-2">20°</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Pressure Angle</div>
+                  <div className="text-2xl font-bold text-white mb-2">Strength</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Heavy-duty operations and load handling</div>
                 </div>
               </div>
             </div>
@@ -235,21 +245,21 @@ export default function HubCarrierModulePage() {
         </div>
       </section>
 
-      {/* Design Philosophy */}
+      {/* Technical Details */}
       <section className="py-16 bg-neutral-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 
               className="text-3xl md:text-4xl font-bold mb-8 font-ibm-plex-serif"
             >
-              Design Philosophy
+              Engineering Achievement
             </h2>
             <p 
               className="text-xl text-gray-300 leading-relaxed font-ibm-plex-serif"
             >
-              This project represents a synthesis of mechanical engineering principles, advanced materials science, and manufacturing innovation. 
-              By integrating precision engineering with modern design methodologies, the hub-carrier module achieves exceptional performance 
-              while maintaining cost-effectiveness and manufacturability.
+              This project demonstrates the successful integration of mechanical design principles, transmission systems, 
+              and performance optimization. The three-speed gearbox represents a key innovation that enables a single 
+              platform to excel across multiple performance domains, showcasing versatility and engineering sophistication.
             </p>
           </div>
         </div>
@@ -295,6 +305,8 @@ export default function HubCarrierModulePage() {
         imageAlt={modalData.imageAlt}
         caption={modalData.caption}
       />
-    </main>
+    </div>
   );
-} 
+};
+
+export default ME371ProjectPage; 

@@ -226,6 +226,38 @@ const ETRLPoolBoilingPage = () => {
         </div>
       </main>
 
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 
+              className="text-3xl font-bold mb-8 font-ibm-plex-serif"
+            >
+              Interested in Learning More?
+            </h2>
+            <div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Link
+                href="/#contact"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 font-ibm-plex-serif"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Get in Touch
+              </Link>
+              <Link
+                href="/#projects"
+                className="inline-flex items-center px-8 py-4 border border-gray-400 text-gray-200 rounded-lg hover:bg-gray-800 hover:border-gray-300 transition-all duration-300 hover:scale-105 font-ibm-plex-serif"
+              >
+                View More Projects
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-6 text-center">

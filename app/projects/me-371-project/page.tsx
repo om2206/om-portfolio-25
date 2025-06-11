@@ -73,18 +73,6 @@ const ME371ProjectPage = () => {
             >
               Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
             </p>
-            <div 
-              className="flex flex-wrap gap-2 justify-center"
-            >
-              {['ROBOTICS', 'MECHANICAL ENGINEERING', 'GEARBOX DESIGN', 'TESTING', 'PERFORMANCE ANALYSIS', 'AUTOMATION'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm font-ibm-plex-serif uppercase tracking-wide"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>

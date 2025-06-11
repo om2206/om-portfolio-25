@@ -73,18 +73,6 @@ export default function HubCarrierModulePage() {
             >
               Advanced drivetrain module featuring preload system integration, rotary sealing technology, and structural optimization methodology
             </p>
-            <div 
-              className="flex flex-wrap gap-2 justify-center"
-            >
-              {['CAD DESIGN', 'MECHANICAL ENGINEERING', 'GEAR SYSTEMS', 'ASSEMBLY DESIGN', 'STRUCTURAL ANALYSIS', 'TOPOLOGY OPTIMIZATION'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm font-ibm-plex-serif uppercase tracking-wide"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -93,7 +81,7 @@ export default function HubCarrierModulePage() {
       <section className="py-16 bg-neutral-900">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div
                 className="group"
               >
@@ -147,6 +135,25 @@ export default function HubCarrierModulePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-white text-sm font-ibm-plex-serif">Advanced rotary seal technology for contamination prevention</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="group"
+              >
+                <div 
+                  className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer"
+                  onClick={() => openModal('/Gearbox view.jpeg', 'Gearbox Assembly View', 'Detailed view of the internal gearbox assembly and gear mesh')}
+                >
+                  <img
+                    src="/Gearbox view.jpeg"
+                    alt="Gearbox Assembly View"
+                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm font-ibm-plex-serif">Detailed view of the internal gearbox assembly and gear mesh</p>
                   </div>
                 </div>
               </div>

@@ -165,6 +165,26 @@ const Hero = () => {
                     />
                   </div>
                   <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/10 to-purple-500/10 pointer-events-none" />
+                  
+                  {/* Anglegrinder bubble - positioned on top-left diagonal with distance */}
+                  <div className="absolute -top-20 -left-32 md:-top-24 md:-left-40 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-lg ring-2 ring-white/20 transition-all duration-300 hover:ring-white/40 hover:scale-110 group">
+                    <img
+                      src="/anglegrinder.jpg"
+                      alt="Angle Grinder Work"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500/20 to-red-500/20 pointer-events-none" />
+                  </div>
+                  
+                  {/* Climbing bubble - positioned on bottom-left diagonal with distance */}
+                  <div className="absolute -bottom-20 -left-32 md:-bottom-24 md:-left-40 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shadow-lg ring-2 ring-white/20 transition-all duration-300 hover:ring-white/40 hover:scale-110 group">
+                    <img
+                      src="/climbing.jpg"
+                      alt="Rock Climbing"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 pointer-events-none" />
+                  </div>
                 </div>
               </div>
 
@@ -172,14 +192,14 @@ const Hero = () => {
                 className="lg:pl-8"
               >
                 <div className="mb-8">
-                  <p className="text-2xl md:text-3xl text-blue-400 font-ibm-plex-serif leading-relaxed">
-                    Driven by curiosity, shaped by precision, and focused on innovation
+                  <p className="text-3xl md:text-4xl text-white font-ibm-plex-serif leading-relaxed">
+                    Hello 👋
                   </p>
                 </div>
 
                 <div className="space-y-6">
                   <p className="text-lg text-gray-300 leading-relaxed font-ibm-plex-serif">
-                    Passionate about mechanical design, advanced manufacturing, and engineering innovation.
+                    I'm passionate about mechanical design, advanced manufacturing, and engineering innovation.
                     I strive to apply my skills to push the boundaries of technology and help design a smarter, more sustainable future.
                   </p>
                   
@@ -211,7 +231,9 @@ const Hero = () => {
                   summary="Preload system, rotary sealing, and structural optimization for a lightweight, high-efficiency drivetrain module."
                   images={[
                     '/cross-section-of-corner.jpeg',
-                    '/exploded-hub-carrier-assembly.jpeg'
+                    '/exploded-hub-carrier-assembly.jpeg',
+                    '/seal.png',
+                    '/Gearbox view.jpeg'
                   ]}
                   tags={['CAD DESIGN', 'MECHANICAL ENGINEERING', 'GEAR SYSTEMS', 'ASSEMBLY DESIGN', 'STRUCTURAL ANALYSIS', 'TOPOLOGY OPTIMIZATION']}
                   projectSlug="hub-carrier-module"

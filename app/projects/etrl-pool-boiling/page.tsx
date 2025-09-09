@@ -70,12 +70,10 @@ const ETRLPoolBoilingPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-ibm-plex-serif">
-              ETRL Pool Boiling Research
+              ETRL Undergraduate Research 
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed font-ibm-plex-serif">
-              Advanced thermal engineering research investigating pool boiling heat transfer phenomena, 
-              critical heat flux mechanisms, and three-phase flow heat exchanger experiments with precision 
-              calorimeter design and LabVIEW instrumentation systems.
+              Undergraduate research project investigating heat transfer characteristics of a three-phase flow heat exchanger. Co-authored two papers - one currently under review and one in preparation.
             </p>
           </motion.div>
 
@@ -98,7 +96,7 @@ const ETRLPoolBoilingPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">Precision thermal measurement instrumentation for heat transfer analysis</p>
+                  <p className="text-white text-sm font-ibm-plex-serif">Caloriemeter with ceramic insulation plates with slot for thermocouple insertion</p>
                 </div>
               </div>
             </div>
@@ -115,7 +113,7 @@ const ETRLPoolBoilingPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">State-of-the-art thermal research laboratory with advanced instrumentation</p>
+                  <p className="text-white text-sm font-ibm-plex-serif">LabView program overview for data acquisition and analysis</p>
                 </div>
               </div>
             </div>
@@ -132,7 +130,7 @@ const ETRLPoolBoilingPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">Complete apparatus configuration for pool boiling heat transfer studies</p>
+                  <p className="text-white text-sm font-ibm-plex-serif">Image of old experimental setup with zoomed in view of heat exchanger surface</p>
                 </div>
               </div>
             </div>
@@ -149,9 +147,9 @@ const ETRLPoolBoilingPage = () => {
             <div className="bg-gray-900/50 rounded-xl p-8 border border-gray-700">
               <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Research Overview</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                This advanced thermal engineering research project focuses on investigating pool boiling heat transfer 
-                phenomena and critical heat flux (CHF) mechanisms. The study employs sophisticated experimental apparatus 
-                to analyze three-phase flow heat exchanger performance under various operating conditions.
+                This research project focuses on investigating pool boiling heat transfer 
+                phenomena and critical heat flux (CHF) mechanisms. 
+                The study employs three different heat exhanger setups for saturated pool boiling, three-phase change pool boiling and a new setup for heating through an IR medium.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 Key research objectives include characterizing heat transfer coefficients, determining critical heat flux 
@@ -166,19 +164,19 @@ const ETRLPoolBoilingPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-blue-400 mb-3">Instrumentation</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Precision calorimeter design</li>
-                    <li>• LabVIEW data acquisition system</li>
-                    <li>• High-resolution temperature sensors</li>
-                    <li>• Pressure monitoring equipment</li>
+                    <li>• State-of-the-art calorimeter design with highest heat flux capabilities in the lab</li>
+                    <li>• Data acquisition through LabView program using NI DAQ</li>
+                    <li>• Ultra High FPS cameras to observe and study nucleate boiling phenomena on surface</li>
+                    <li>• Using IR through sapphire coated heaters to observe and investigate a translucent surface</li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-400 mb-3">Research Parameters</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Pool boiling heat transfer analysis</li>
-                    <li>• Critical heat flux determination</li>
+                    <li>• Validation of results from existing literature and past experiments</li>
+                    <li>• CHF limit determination</li>
                     <li>• Three-phase flow characterization</li>
-                    <li>• Heat exchanger performance optimization</li>
+                    <li>• Optimization of heat exchanging mechanism by employing surface finishes, treatment with chemicals, etc.</li>
                   </ul>
                 </div>
               </div>

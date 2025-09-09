@@ -71,7 +71,7 @@ const ME371ProjectPage = () => {
             <p 
               className="text-xl text-gray-300 mb-8 font-ibm-plex-serif"
             >
-              Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
+              Built and tested robot with functioning two-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const ME371ProjectPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Complete robot assembly with three-speed gearbox system</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Complete robot assembly with two-speed gearbox system</p>
                   </div>
                 </div>
               </div>
@@ -111,7 +111,7 @@ const ME371ProjectPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Advanced three-speed transmission system for optimal performance</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Gzumwalt's shifting mechanism featuring a two-stage compound geartrain adapted to fit project deliverables </p>
                   </div>
                 </div>
               </div>
@@ -128,7 +128,7 @@ const ME371ProjectPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Precision ball lock mechanism for secure gear engagement</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Cross-sectional view of ball-lock shifting mechanism</p>
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const ME371ProjectPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Top-down view showing strategic component placement and design</p>
+                    <p className="text-white text-sm font-ibm-plex-serif">Top-down view of robot chassis and drivetrain position</p>
                   </div>
                 </div>
               </div>
@@ -170,30 +170,30 @@ const ME371ProjectPage = () => {
               >
                 <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Robot Design & Build</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Designed and constructed a versatile robot capable of performing multiple tasks requiring different performance characteristics. 
-                  The modular design allows for quick adaptation between speed, agility, and strength-focused operations.
+                  Led team in design for geartrain, gear ratio determination, and system integration. Initally considered dog-clutch shifting mechanism, however chose ball-lock shifting mechanism due to its superior shift speeds. 
+                  Final geartrain design was selected due to its creative approach, simplicity in design, and low potential for failures. The robot was designed to be optimal for additive manufacturing since we were 3D printing a large majority of the parts. 
                 </p>
               </div>
 
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Three-Speed Gearbox</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Geartrain</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Engineered and implemented a sophisticated three-speed transmission system that enables optimal performance 
-                  across different task requirements. The gearbox provides mechanical advantage for strength tasks while 
-                  maintaining high-speed capabilities for agility challenges.
+                  This gearbox is a two-speed gearbox that allows for a direction flip so that the robot move in both directions. 
+                  It features a high torque gear-ratio that helps the robot perform the strength task and a high speed gear-ratio for the speed and agility tasks. 
+                  Our initial design featured a ball-lock transmission with three-speeds however due to manufacturing inaccuracies in FDM tolerances, 
+                  we chose this shifting mechanism for its simplicity, yet creative shifting approach.
                 </p>
               </div>
 
               <div
                 className="bg-neutral-900 rounded-xl p-8"
               >
-                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Performance Testing</h3>
+                <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">Protoyping and Perfomance</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Conducted comprehensive testing protocols to validate robot performance across all operational modes. 
-                  Testing included speed trials, agility courses, and strength evaluations to ensure consistent 
-                  performance and reliability under various conditions.
+                  Iterative prototyping of geartrain, chassis designs and gear ratios was crucial to hit desired performance criteria. 3D printing parts allowed for rapid prototyping of parts and designs. 
+                  Robot performed well in all task categories but struggled with excelling in a single task.
                 </p>
               </div>
 
@@ -202,9 +202,8 @@ const ME371ProjectPage = () => {
               >
                 <h3 className="text-2xl font-bold mb-4 text-blue-400 font-ibm-plex-serif">System Integration</h3>
                 <p className="text-gray-300 leading-relaxed font-ibm-plex-serif">
-                  Integrated mechanical, electrical, and control systems to create a cohesive robotic platform. 
-                  The design emphasizes modularity, maintainability, and ease of operation while maximizing 
-                  performance across diverse task requirements.
+                  Integrated mechanical, electrical, and control systems to create a cohesive robot that was also aesthetically pleasing. 
+                  It was important to ensure that the system was modular so that we could perform repairs or maintenance in case we had failures during the project tests.
                 </p>
               </div>
             </div>
@@ -217,15 +216,15 @@ const ME371ProjectPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-2xl font-bold text-white mb-2">Speed</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">High-velocity locomotion and rapid traversal capabilities</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Robot moves up a ramp, through a flat surface, and back down a ramp. Team with fastest time wins.</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white mb-2">Agility</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Precise maneuvering and obstacle navigation</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Robot moves back and forth across two lines within a time limit.Team with largest number of traverals wins.</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white mb-2">Strength</div>
-                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Heavy-duty operations and load handling</div>
+                  <div className="text-gray-400 text-sm font-ibm-plex-serif">Robot must be able to move up an angled ramp with increasing payloads. Team with highest payload carried up the ramp wins.</div>
                 </div>
               </div>
             </div>
@@ -240,14 +239,13 @@ const ME371ProjectPage = () => {
             <h2 
               className="text-3xl md:text-4xl font-bold mb-8 font-ibm-plex-serif"
             >
-              Engineering Achievement
+              Key Takeaways
             </h2>
             <p 
               className="text-xl text-gray-300 leading-relaxed font-ibm-plex-serif"
             >
-              This project demonstrates the successful integration of mechanical design principles, transmission systems, 
-              and performance optimization. The three-speed gearbox represents a key innovation that enables a single 
-              platform to excel across multiple performance domains, showcasing versatility and engineering sophistication.
+              This project challenged me to design and iterate through multiple mechanisms to ensure that performance criteria were met and executed to a competitive level. 
+              This project involved part failures, scrapped designs, and prototypes that did not pan out and I believe that this helped me develop a more holistic design mindset and robust principles for future projects.
             </p>
           </div>
         </div>

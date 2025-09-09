@@ -8,7 +8,6 @@ interface ProjectCardProps {
   title: string;
   summary: string;
   images: string[];
-  tags: string[];
   projectSlug: string;
 }
 
@@ -16,7 +15,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   summary,
   images,
-  tags,
   projectSlug,
 }) => {
   return (

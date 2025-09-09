@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 import GearSystem from './GearSystem';
 
@@ -18,14 +17,15 @@ const Hero = () => {
         currentIndex++;
       } else {
         clearInterval(typingInterval);
-        setInterval(() => {
+        const cursorInterval = setInterval(() => {
           setShowCursor(prev => !prev);
         }, 500);
+        return () => clearInterval(cursorInterval);
       }
     }, 200);
 
     return () => clearInterval(typingInterval);
-  }, []);
+  }, [fullText]);
 
   return (
     <>
@@ -226,49 +226,46 @@ const Hero = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Hub-Carrier Project Card */}
               <div>
-                <ProjectCard
-                  title="Hub-Carrier Module"
-                  summary="Preload system, rotary sealing, and structural optimization for a lightweight, high-efficiency drivetrain module."
-                  images={[
-                    '/cross-section-of-corner.jpeg',
-                    '/exploded-hub-carrier-assembly.jpeg',
-                    '/seal.png',
-                    '/Gearbox view.jpeg'
-                  ]}
-                  tags={['CAD DESIGN', 'MECHANICAL ENGINEERING', 'GEAR SYSTEMS', 'ASSEMBLY DESIGN', 'STRUCTURAL ANALYSIS', 'TOPOLOGY OPTIMIZATION']}
-                  projectSlug="hub-carrier-module"
-                />
+                              <ProjectCard
+                title="Hub-Carrier Module"
+                summary="Preload system, rotary sealing, and structural optimization for a lightweight, high-efficiency drivetrain module."
+                images={[
+                  '/cross-section-of-corner.jpeg',
+                  '/exploded-hub-carrier-assembly.jpeg',
+                  '/seal.png',
+                  '/Gearbox view.jpeg'
+                ]}
+                projectSlug="hub-carrier-module"
+              />
               </div>
 
               {/* ETRL Pool Boiling Project Card */}
               <div>
-                <ProjectCard
-                  title="ETRL Pool Boiling Research"
-                  summary="Thermal engineering research project investigating pool boiling heat transfer phenomena and critical heat flux mechanisms."
-                  images={[
-                    '/calorie.png',
-                    '/Lab view.png',
-                    '/Setup Images.jpg'
-                  ]}
-                  tags={['THERMAL ENGINEERING', 'RESEARCH', 'HEAT TRANSFER', 'BOILING', 'CRITICAL HEAT FLUX', 'EXPERIMENTAL ANALYSIS']}
-                  projectSlug="etrl-pool-boiling"
-                />
+                              <ProjectCard
+                title="ETRL Pool Boiling Research"
+                summary="Thermal engineering research project investigating pool boiling heat transfer phenomena and critical heat flux mechanisms."
+                images={[
+                  '/calorie.png',
+                  '/Lab view.png',
+                  '/Setup Images.jpg'
+                ]}
+                projectSlug="etrl-pool-boiling"
+              />
               </div>
 
               {/* ME 371 Project Card */}
               <div>
-                <ProjectCard
-                  title="ME 371 Project"
-                  summary="Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests."
-                  images={[
-                    '/Robot.png',
-                    '/Gear assembly.png',
-                    '/Ball lock cross section.png',
-                    '/Robot Top view.png'
-                  ]}
-                  tags={['ROBOTICS', 'MECHANICAL ENGINEERING', 'GEARBOX DESIGN', 'TESTING', 'PERFORMANCE ANALYSIS', 'AUTOMATION']}
-                  projectSlug="me-371-project"
-                />
+                              <ProjectCard
+                title="ME 371 Project"
+                summary="Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests."
+                images={[
+                  '/Robot.png',
+                  '/Gear assembly.png',
+                  '/Ball lock cross section.png',
+                  '/Robot Top view.png'
+                ]}
+                projectSlug="me-371-project"
+              />
               </div>
             </div>
           </div>

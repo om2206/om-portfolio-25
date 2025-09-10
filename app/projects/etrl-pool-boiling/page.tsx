@@ -149,7 +149,7 @@ const ETRLPoolBoilingPage = () => {
               <p className="text-gray-300 leading-relaxed mb-4">
                 This research project focuses on investigating pool boiling heat transfer 
                 phenomena and critical heat flux (CHF) mechanisms. 
-                The study employs three different heat exhanger setups for saturated pool boiling, three-phase change pool boiling and a new setup for heating through an IR medium.
+                The study employs three different heat exhanger setups for saturated pool boiling, three-phase change pool boiling and a new setup for characterizing exchanget surface phenomena byheating through an IR medium.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 Key research objectives include characterizing heat transfer coefficients, determining critical heat flux 
@@ -203,19 +203,19 @@ const ETRLPoolBoilingPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-blue-400 mb-3">Design & Development</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Three-phase flow heat exchanger experiments</li>
-                    <li>• Specialized calorimeter equipment design</li>
-                    <li>• Ceramic insulation block engineering</li>
-                    <li>• LabView instrumentation setup</li>
+                    <li>• Built workspace for three experimental setups from scratch</li>
+                    <li>• Developed ceramic insulator for calorimeter block</li>
+                    <li>• Working on experimental optimization and improving the setup</li>
+                    <li>• Adding high resolution and high-speed video cameras to document and study surface phenomena </li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-400 mb-3">Research & Publications</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Co-authoring two technical papers</li>
-                    <li>• Ongoing testing and validation</li>
-                    <li>• Experimental accuracy verification</li>
-                    <li>• Heat transfer coefficient characterization</li>
+                    <li>• Co-author on two papers - one under peer-review at Wiley and the other in preparation</li>
+                    <li>• Currently testing and validating new pool boiling setups with existing literature and old data</li>
+                    <li>• Conducting extensive reproducibility tests on current setups to characterize mechanism behaviors</li>
+                    <li>• Incorporating peer review suggestions and feedback in current papers</li>
                   </ul>
                 </div>
               </div>

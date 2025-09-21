@@ -223,10 +223,9 @@ const Hero = () => {
               Featured Projects
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
               {/* Hub-Carrier Project Card */}
-              <div>
-                              <ProjectCard
+              <ProjectCard
                 title="Hub-Carrier Module"
                 summary="Preload system, rotary sealing, and structural optimization for a lightweight, high-efficiency drivetrain module."
                 images={[
@@ -237,11 +236,9 @@ const Hero = () => {
                 ]}
                 projectSlug="hub-carrier-module"
               />
-              </div>
 
               {/* ETRL Pool Boiling Project Card */}
-              <div>
-                              <ProjectCard
+              <ProjectCard
                 title="ETRL Pool Boiling Research"
                 summary="Thermal engineering research project investigating pool boiling heat transfer phenomena and critical heat flux mechanisms."
                 images={[
@@ -251,11 +248,9 @@ const Hero = () => {
                 ]}
                 projectSlug="etrl-pool-boiling"
               />
-              </div>
 
               {/* ME 371 Project Card */}
-              <div>
-                              <ProjectCard
+              <ProjectCard
                 title="ME 371 Project"
                 summary="Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests."
                 images={[
@@ -266,7 +261,6 @@ const Hero = () => {
                 ]}
                 projectSlug="me-371-project"
               />
-              </div>
             </div>
           </div>
         </div>

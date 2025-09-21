@@ -72,7 +72,7 @@ const ETRLPoolBoilingPage = () => {
     },
     {
       type: 'video',
-      src: '/Surface Video.MOV',
+      src: '/Surface Video.mp4',
       alt: 'Surface Phenomena Visualization',
       caption: 'Surface phenomena visualization during pool boiling heat transfer',
       modalCaption: 'Surface phenomena visualization during pool boiling heat transfer'
@@ -211,11 +211,8 @@ const ETRLPoolBoilingPage = () => {
                           onPlay={handleVideoPlay}
                           onPause={handleVideoPause}
                           preload="metadata"
-                          crossOrigin="anonymous"
-                          webkit-playsinline="true"
                         >
                           <source src={item.src} type="video/mp4" />
-                          <source src={item.src} type="video/quicktime" />
                           Your browser does not support the video tag.
                         </video>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

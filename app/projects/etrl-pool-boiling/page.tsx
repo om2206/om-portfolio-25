@@ -11,23 +11,26 @@ const ETRLPoolBoilingPage = () => {
     imageSrc: string;
     imageAlt: string;
     caption: string;
+    isVideo: boolean;
   }>({
     isOpen: false,
     imageSrc: '',
     imageAlt: '',
-    caption: ''
+    caption: '',
+    isVideo: false
   });
 
   const [currentPage, setCurrentPage] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const itemsPerPage = 3;
 
-  const openModal = (imageSrc: string, imageAlt: string, caption: string) => {
+  const openModal = (imageSrc: string, imageAlt: string, caption: string, isVideo: boolean = false) => {
     setModalData({
       isOpen: true,
       imageSrc,
       imageAlt,
-      caption
+      caption,
+      isVideo
     });
   };
 
@@ -185,7 +188,7 @@ const ETRLPoolBoilingPage = () => {
                     {item.type === 'image' ? (
                       <div 
                         className="cursor-pointer"
-                        onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption)}
+                        onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption, item.type === 'video')}
                       >
                         <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
                           <img 
@@ -200,7 +203,10 @@ const ETRLPoolBoilingPage = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
+                      <div 
+                        className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900 cursor-pointer"
+                        onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption, item.type === 'video')}
+                      >
                         <video 
                           src={item.src} 
                           className="w-full h-[400px] object-contain transition-transform duration-300 group-hover:scale-105"
@@ -210,7 +216,11 @@ const ETRLPoolBoilingPage = () => {
                           playsInline
                           onPlay={handleVideoPlay}
                           onPause={handleVideoPause}
+                          onLoadStart={() => console.log('Video loading started')}
+                          onCanPlay={() => console.log('Video can play')}
+                          onError={(e) => console.log('Video error:', e)}
                           preload="metadata"
+                          onClick={(e) => e.stopPropagation()}
                         >
                           <source src={item.src} type="video/mp4" />
                           Your browser does not support the video tag.
@@ -218,6 +228,13 @@ const ETRLPoolBoilingPage = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <p className="text-white text-sm font-ibm-plex-serif">{item.caption}</p>
+                        </div>
+                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-black/50 rounded-full p-2">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     )}
@@ -411,6 +428,7 @@ const ETRLPoolBoilingPage = () => {
         imageSrc={modalData.imageSrc}
         imageAlt={modalData.imageAlt}
         caption={modalData.caption}
+        isVideo={modalData.isVideo}
       />
     </div>
   );

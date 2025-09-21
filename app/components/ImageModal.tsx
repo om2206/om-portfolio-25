@@ -9,9 +9,10 @@ interface ImageModalProps {
   imageSrc: string;
   imageAlt: string;
   caption: string;
+  isVideo?: boolean;
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, imageSrc, imageAlt, caption }) => {
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, imageSrc, imageAlt, caption, isVideo = false }) => {
   // Close modal when clicking outside or pressing Escape
   React.useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -67,13 +68,28 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onClose, imageSrc, imag
               </svg>
             </button>
 
-            {/* Image */}
+            {/* Image or Video */}
             <div className="relative">
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                className="w-full h-auto max-h-[70vh] object-contain"
-              />
+              {isVideo ? (
+                <video
+                  src={imageSrc}
+                  className="w-full h-auto max-h-[70vh] object-contain"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src={imageSrc} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  className="w-full h-auto max-h-[70vh] object-contain"
+                />
+              )}
             </div>
 
             {/* Caption */}

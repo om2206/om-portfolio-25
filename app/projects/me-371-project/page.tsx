@@ -18,6 +18,9 @@ const ME371ProjectPage = () => {
     caption: ''
   });
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 3;
+
   const openModal = (imageSrc: string, imageAlt: string, caption: string) => {
     setModalData({
       isOpen: true,
@@ -30,6 +33,51 @@ const ME371ProjectPage = () => {
   const closeModal = () => {
     setModalData(prev => ({ ...prev, isOpen: false }));
   };
+
+  const projectImages = [
+    {
+      src: '/Robot.png',
+      alt: 'ME 371 Robot Design',
+      caption: 'Complete robot assembly with two-speed gearbox system',
+      modalCaption: 'Complete robot assembly with three-speed gearbox system'
+    },
+    {
+      src: '/Gear assembly.png',
+      alt: 'Three-Speed Gearbox Assembly',
+      caption: 'Gzumwalt\'s shifting mechanism featuring a two-stage compound geartrain adapted to fit project deliverables',
+      modalCaption: 'Advanced three-speed transmission system for optimal performance'
+    },
+    {
+      src: '/Ball lock cross section.png',
+      alt: 'Ball Lock Mechanism Cross Section',
+      caption: 'Cross-sectional view of ball-lock shifting mechanism',
+      modalCaption: 'Precision ball lock mechanism for secure gear engagement'
+    },
+    {
+      src: '/Robot Top view.png',
+      alt: 'Robot Top View Layout',
+      caption: 'Top-down view of robot chassis and drivetrain position',
+      modalCaption: 'Top-down view showing strategic component placement and design'
+    }
+  ];
+
+  const nextPage = () => {
+    const maxPage = Math.ceil(projectImages.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev + 1) % (maxPage + 1));
+  };
+
+  const prevPage = () => {
+    const maxPage = Math.ceil(projectImages.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev - 1 + (maxPage + 1)) % (maxPage + 1));
+  };
+
+  const getCurrentPageItems = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return projectImages.slice(startIndex, endIndex);
+  };
+
+  const totalPages = Math.ceil(projectImages.length / itemsPerPage);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -71,7 +119,7 @@ const ME371ProjectPage = () => {
             <p 
               className="text-xl text-gray-300 mb-8 font-ibm-plex-serif"
             >
-              Built and tested robot with functioning two-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
+              Built and tested robot with functioning three-speed gearbox to perform a range of tasks including Speed, Agility, and Strength tests.
             </p>
           </div>
         </div>
@@ -80,75 +128,97 @@ const ME371ProjectPage = () => {
       {/* Project Images */}
       <section className="py-16 bg-neutral-900">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div 
-                className="group"
-                onClick={() => openModal('/Robot.png', 'ME 371 Robot Design', 'Complete robot assembly with three-speed gearbox system')}
+          <div className="max-w-7xl mx-auto">
+            {/* Gallery Container */}
+            <div className="relative">
+              <motion.div 
+                className={`grid gap-8 ${
+                  getCurrentPageItems().length === 1 
+                    ? 'grid-cols-1 justify-center' 
+                    : getCurrentPageItems().length === 2 
+                    ? 'grid-cols-1 md:grid-cols-2 justify-center' 
+                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}
+                key={currentPage}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
               >
-                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                  <img
-                    src="/Robot.png"
-                    alt="ME 371 Robot Design"
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Complete robot assembly with two-speed gearbox system</p>
-                  </div>
-                </div>
-              </div>
+                {getCurrentPageItems().map((item, index) => (
+                  <motion.div 
+                    key={`${currentPage}-${index}`}
+                    className="group"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div 
+                      className="cursor-pointer"
+                      onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption)}
+                    >
+                      <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
+                        <img 
+                          src={item.src} 
+                          alt={item.alt}
+                          className="w-full h-[400px] object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-white text-sm font-ibm-plex-serif">{item.caption}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
 
-              <div 
-                className="group"
-                onClick={() => openModal('/Gear assembly.png', 'Three-Speed Gearbox Assembly', 'Advanced three-speed transmission system for optimal performance')}
+            {/* Navigation Controls */}
+            <div className="flex justify-center items-center mt-8 space-x-4">
+              <button
+                onClick={prevPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === 0}
+                aria-label="Previous page"
               >
-                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                  <img
-                    src="/Gear assembly.png"
-                    alt="Three-Speed Gearbox Assembly"
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <div className="flex space-x-2">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentPage 
+                        ? 'bg-white scale-125' 
+                        : 'bg-gray-500 hover:bg-gray-300'
+                    }`}
+                    aria-label={`Go to page ${index + 1}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Gzumwalt's shifting mechanism featuring a two-stage compound geartrain adapted to fit project deliverables </p>
-                  </div>
-                </div>
+                ))}
               </div>
+              
+              <button
+                onClick={nextPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === totalPages - 1}
+                aria-label="Next page"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
 
-              <div 
-                className="group"
-                onClick={() => openModal('/Ball lock cross section.png', 'Ball Lock Mechanism Cross Section', 'Precision ball lock mechanism for secure gear engagement')}
-              >
-                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                  <img
-                    src="/Ball lock cross section.png"
-                    alt="Ball Lock Mechanism Cross Section"
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Cross-sectional view of ball-lock shifting mechanism</p>
-                  </div>
-                </div>
-              </div>
-
-              <div 
-                className="group"
-                onClick={() => openModal('/Robot Top view.png', 'Robot Top View Layout', 'Top-down view showing strategic component placement and design')}
-              >
-                <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                  <img
-                    src="/Robot Top view.png"
-                    alt="Robot Top View Layout"
-                    className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-ibm-plex-serif">Top-down view of robot chassis and drivetrain position</p>
-                  </div>
-                </div>
-              </div>
+            {/* Page Indicator */}
+            <div className="text-center mt-4">
+              <p className="text-gray-400 text-sm font-ibm-plex-serif">
+                Page {currentPage + 1} of {totalPages}
+              </p>
             </div>
           </div>
         </div>

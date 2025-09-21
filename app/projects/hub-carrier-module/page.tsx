@@ -1,38 +1,84 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ProjectNavigation from '../../components/ProjectNavigation';
 import ImageModal from '../../components/ImageModal';
-import { useImageModal } from '../../hooks/useImageModal';
-import ImageGallery from '../../components/ImageGallery';
 
 export default function HubCarrierModulePage() {
-  const { modalData, openModal, closeModal } = useImageModal();
+  const [modalData, setModalData] = useState<{
+    isOpen: boolean;
+    imageSrc: string;
+    imageAlt: string;
+    caption: string;
+  }>({
+    isOpen: false,
+    imageSrc: '',
+    imageAlt: '',
+    caption: ''
+  });
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 3;
+
+  const openModal = (imageSrc: string, imageAlt: string, caption: string) => {
+    setModalData({
+      isOpen: true,
+      imageSrc,
+      imageAlt,
+      caption
+    });
+  };
+
+  const closeModal = () => {
+    setModalData(prev => ({ ...prev, isOpen: false }));
+  };
 
   const projectImages = [
     {
       src: '/cross-section-of-corner.jpeg',
       alt: 'Hub-Carrier Cross Section',
-      caption: 'Cross-sectional view showing internal component arrangement'
+      caption: 'Cross-sectional view showing internal component arrangement',
+      modalCaption: 'Detailed cross-sectional view of the hub-carrier module showing internal component arrangement and structural design'
     },
     {
       src: '/exploded-hub-carrier-assembly.jpeg',
       alt: 'Exploded Hub-Carrier Assembly',
-      caption: 'Exploded assembly view highlighting preload plate on the right side'
+      caption: 'Exploded assembly view highlighting preload plate on the right side',
+      modalCaption: 'Exploded assembly view highlighting preload plate on the right side and component relationships'
     },
     {
       src: '/seal.png',
       alt: 'Advanced Rotary Seal Design',
-      caption: 'SKF Rotary seal with dust lip to optimize heat loss and prevent contamination'
+      caption: 'SKF Rotary seal with dust lip to optimize heat loss and prevent contamination',
+      modalCaption: 'SKF Rotary seal with dust lip to optimize heat loss and prevent contamination'
     },
     {
       src: '/Gearbox view.jpeg',
       alt: 'Gearbox Assembly View',
-      caption: 'Detailed view of the assembled internal gearbox assembly and upright'
+      caption: 'Detailed view of the assembled internal gearbox assembly and upright',
+      modalCaption: 'Detailed view of the assembled internal gearbox assembly and upright showing complete integration'
     }
   ];
+
+  const nextPage = () => {
+    const maxPage = Math.ceil(projectImages.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev + 1) % (maxPage + 1));
+  };
+
+  const prevPage = () => {
+    const maxPage = Math.ceil(projectImages.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev - 1 + (maxPage + 1)) % (maxPage + 1));
+  };
+
+  const getCurrentPageItems = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return projectImages.slice(startIndex, endIndex);
+  };
+
+  const totalPages = Math.ceil(projectImages.length / itemsPerPage);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -56,12 +102,98 @@ export default function HubCarrierModulePage() {
       {/* Project Images */}
       <section className="py-16 bg-neutral-900">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <ImageGallery 
-              images={projectImages}
-              onImageClick={openModal}
-              columns={4}
-            />
+          <div className="max-w-7xl mx-auto">
+            {/* Gallery Container */}
+            <div className="relative">
+              <motion.div 
+                className={`grid gap-8 ${
+                  getCurrentPageItems().length === 1 
+                    ? 'grid-cols-1 justify-center' 
+                    : getCurrentPageItems().length === 2 
+                    ? 'grid-cols-1 md:grid-cols-2 justify-center' 
+                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}
+                key={currentPage}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+              >
+                {getCurrentPageItems().map((item, index) => (
+                  <motion.div 
+                    key={`${currentPage}-${index}`}
+                    className="group"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div 
+                      className="cursor-pointer"
+                      onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption)}
+                    >
+                      <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
+                        <img 
+                          src={item.src} 
+                          alt={item.alt}
+                          className="w-full h-[400px] object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-white text-sm font-ibm-plex-serif">{item.caption}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex justify-center items-center mt-8 space-x-4">
+              <button
+                onClick={prevPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === 0}
+                aria-label="Previous page"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <div className="flex space-x-2">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentPage 
+                        ? 'bg-white scale-125' 
+                        : 'bg-gray-500 hover:bg-gray-300'
+                    }`}
+                    aria-label={`Go to page ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button
+                onClick={nextPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === totalPages - 1}
+                aria-label="Next page"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Page Indicator */}
+            <div className="text-center mt-4">
+              <p className="text-gray-400 text-sm font-ibm-plex-serif">
+                Page {currentPage + 1} of {totalPages}
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -18,6 +18,10 @@ const ETRLPoolBoilingPage = () => {
     caption: ''
   });
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const itemsPerPage = 3;
+
   const openModal = (imageSrc: string, imageAlt: string, caption: string) => {
     setModalData({
       isOpen: true,
@@ -29,6 +33,76 @@ const ETRLPoolBoilingPage = () => {
 
   const closeModal = () => {
     setModalData(prev => ({ ...prev, isOpen: false }));
+  };
+
+  const galleryItems: Array<{
+    type: 'image' | 'video';
+    src: string;
+    alt: string;
+    caption: string;
+    modalCaption?: string;
+  }> = [
+    {
+      type: 'image',
+      src: '/calorie.png',
+      alt: 'Calorimeter Design and Setup',
+      caption: 'Caloriemeter with ceramic insulation plates with slot for thermocouple insertion',
+      modalCaption: 'Precision thermal measurement instrumentation for heat transfer analysis'
+    },
+    {
+      type: 'image',
+      src: '/Lab view.png',
+      alt: 'Laboratory Setup and Equipment',
+      caption: 'LabView program overview for data acquisition and analysis',
+      modalCaption: 'State-of-the-art thermal research laboratory with advanced instrumentation'
+    },
+    {
+      type: 'image',
+      src: '/Setup Images.jpg',
+      alt: 'Experimental Setup Configuration',
+      caption: 'Image of old experimental setup with zoomed in view of heat exchanger surface',
+      modalCaption: 'Complete apparatus configuration for pool boiling heat transfer studies'
+    },
+    {
+      type: 'image',
+      src: '/Pool boiling.jpg',
+      alt: 'Pool Boiling Phenomena',
+      caption: 'Pool boiling heat transfer visualization showing nucleate boiling patterns',
+      modalCaption: 'High-speed visualization of nucleate boiling and heat transfer mechanisms'
+    },
+    {
+      type: 'video',
+      src: '/Surface Video.MOV',
+      alt: 'Surface Phenomena Visualization',
+      caption: 'Surface phenomena visualization during pool boiling heat transfer',
+      modalCaption: 'Surface phenomena visualization during pool boiling heat transfer'
+    }
+  ];
+
+  const nextPage = () => {
+    const maxPage = Math.ceil(galleryItems.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev + 1) % (maxPage + 1));
+  };
+
+  const prevPage = () => {
+    const maxPage = Math.ceil(galleryItems.length / itemsPerPage) - 1;
+    setCurrentPage((prev) => (prev - 1 + (maxPage + 1)) % (maxPage + 1));
+  };
+
+  const getCurrentPageItems = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return galleryItems.slice(startIndex, endIndex);
+  };
+
+  const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+  };
+
+  const handleVideoPause = () => {
+    setIsVideoPlaying(false);
   };
 
   return (
@@ -77,62 +151,129 @@ const ETRLPoolBoilingPage = () => {
             </p>
           </motion.div>
 
-          {/* Project Images */}
+          {/* Project Gallery */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            className="relative max-w-7xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div 
-              className="group"
-              onClick={() => openModal('/calorie.png', 'Calorimeter Design and Setup', 'Precision thermal measurement instrumentation for heat transfer analysis')}
-            >
-              <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                <img 
-                  src="/calorie.png" 
-                  alt="Calorimeter Design and Setup"
-                  className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">Caloriemeter with ceramic insulation plates with slot for thermocouple insertion</p>
-                </div>
-              </div>
+            {/* Gallery Container */}
+            <div className="relative">
+              <motion.div 
+                className={`grid gap-8 ${
+                  getCurrentPageItems().length === 1 
+                    ? 'grid-cols-1 justify-center' 
+                    : getCurrentPageItems().length === 2 
+                    ? 'grid-cols-1 md:grid-cols-2 justify-center' 
+                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}
+                key={currentPage}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+              >
+                {getCurrentPageItems().map((item, index) => (
+                  <motion.div 
+                    key={`${currentPage}-${index}`}
+                    className="group"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    {item.type === 'image' ? (
+                      <div 
+                        className="cursor-pointer"
+                        onClick={() => openModal(item.src, item.alt, item.modalCaption || item.caption)}
+                      >
+                        <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
+                          <img 
+                            src={item.src} 
+                            alt={item.alt}
+                            className="w-full h-[400px] object-contain transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p className="text-white text-sm font-ibm-plex-serif">{item.caption}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="relative overflow-hidden rounded-xl shadow-2xl bg-gray-900">
+                        <video 
+                          src={item.src} 
+                          className="w-full h-[400px] object-contain transition-transform duration-300 group-hover:scale-105"
+                          controls
+                          muted
+                          loop
+                          playsInline
+                          onPlay={handleVideoPlay}
+                          onPause={handleVideoPause}
+                          preload="metadata"
+                          crossOrigin="anonymous"
+                          webkit-playsinline="true"
+                        >
+                          <source src={item.src} type="video/mp4" />
+                          <source src={item.src} type="video/quicktime" />
+                          Your browser does not support the video tag.
+                        </video>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-white text-sm font-ibm-plex-serif">{item.caption}</p>
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
 
-            <div 
-              className="group"
-              onClick={() => openModal('/Lab view.png', 'Laboratory Setup and Equipment', 'State-of-the-art thermal research laboratory with advanced instrumentation')}
-            >
-              <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                <img 
-                  src="/Lab view.png" 
-                  alt="Laboratory Setup and Equipment"
-                  className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">LabView program overview for data acquisition and analysis</p>
-                </div>
+            {/* Navigation Controls */}
+            <div className="flex justify-center items-center mt-8 space-x-4">
+              <button
+                onClick={prevPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === 0}
+                aria-label="Previous page"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <div className="flex space-x-2">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentPage 
+                        ? 'bg-white scale-125' 
+                        : 'bg-gray-500 hover:bg-gray-300'
+                    }`}
+                    aria-label={`Go to page ${index + 1}`}
+                  />
+                ))}
               </div>
+              
+              <button
+                onClick={nextPage}
+                className="flex items-center justify-center w-12 h-12 bg-gray-800 hover:bg-gray-700 text-white rounded-full transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={currentPage === totalPages - 1}
+                aria-label="Next page"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
 
-            <div 
-              className="group"
-              onClick={() => openModal('/Setup Images.jpg', 'Experimental Setup Configuration', 'Complete apparatus configuration for pool boiling heat transfer studies')}
-            >
-              <div className="relative overflow-hidden rounded-xl shadow-2xl cursor-pointer">
-                <img 
-                  src="/Setup Images.jpg" 
-                  alt="Experimental Setup Configuration"
-                  className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-ibm-plex-serif">Image of old experimental setup with zoomed in view of heat exchanger surface</p>
-                </div>
-              </div>
+            {/* Page Indicator */}
+            <div className="text-center mt-4">
+              <p className="text-gray-400 text-sm font-ibm-plex-serif">
+                Page {currentPage + 1} of {totalPages}
+              </p>
             </div>
           </motion.div>
 
@@ -206,7 +347,8 @@ const ETRLPoolBoilingPage = () => {
                     <li>• Built workspace for three experimental setups from scratch</li>
                     <li>• Developed ceramic insulator for calorimeter block</li>
                     <li>• Working on experimental optimization and improving the setup</li>
-                    <li>• Adding high resolution and high-speed video cameras to document and study surface phenomena </li>
+                    <li>• Adding high resolution and high-speed video cameras to document and study surface phenomena
+                       </li>
                   </ul>
                 </div>
                 <div>

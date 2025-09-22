@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ImageModal from '../../components/ImageModal';
 
-const ETRLPoolBoilingPage = () => {
+const SHELBOWCapstonePage = () => {
   const [modalData, setModalData] = useState<{
     isOpen: boolean;
     imageSrc: string;
@@ -47,38 +47,24 @@ const ETRLPoolBoilingPage = () => {
   }> = [
     {
       type: 'image',
-      src: '/calorie.png',
-      alt: 'Calorimeter Design and Setup',
-      caption: 'Caloriemeter with ceramic insulation plates with slot for thermocouple insertion',
-      modalCaption: 'Caloriemeter with ceramic insulation plates with slot for thermocouple insertion'
+      src: '/prototype.jpg',
+      alt: 'SHELBOW Prototype',
+      caption: 'Final prototype of the SHELBOW capstone design project',
+      modalCaption: 'Final prototype of the SHELBOW capstone design project'
     },
     {
       type: 'image',
-      src: '/Lab view.png',
-      alt: 'Laboratory Setup and Equipment',
-      caption: 'LabView program overview for data acquisition and analysis',
-      modalCaption: 'LabView program overview for data acquisition and analysis'
-    },
-    {
-      type: 'image',
-      src: '/Setup Images.jpg',
-      alt: 'Experimental Setup Configuration',
-      caption: 'Image of old experimental setup with zoomed in view of heat exchanger surface',
-      modalCaption: 'Image of old experimental setup with zoomed in view of heat exchanger surface'
-    },
-    {
-      type: 'image',
-      src: '/Pool boiling.jpg',
-      alt: 'Pool Boiling Phenomena',
-      caption: 'Pool boiling heat transfer setup to study nucleate boiling phenomena',
-      modalCaption: 'Pool boiling heat transfer setup to study nucleate boiling phenomena'
+      src: '/Prototype Sketch.jpg',
+      alt: 'SHELBOW Design Sketch',
+      caption: 'Initial design sketch and concept development for SHELBOW',
+      modalCaption: 'Initial design sketch and concept development for SHELBOW'
     },
     {
       type: 'video',
-      src: '/Surface Video.mp4',
-      alt: 'Surface Phenomena Visualization',
-      caption: 'Ultra high FPS footage of surface boiling phenomena under pool boiling conditions',
-      modalCaption: 'Ultra high FPS footage of surface boiling phenomena under pool boiling conditions'
+      src: '/Prototype video.mp4',
+      alt: 'SHELBOW Prototype Demonstration',
+      caption: 'Video demonstration of the SHELBOW prototype in action',
+      modalCaption: 'Video demonstration of the SHELBOW prototype in action'
     }
   ];
 
@@ -147,10 +133,12 @@ const ETRLPoolBoilingPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-ibm-plex-serif">
-              ETRL Undergraduate Research 
+              SHELBOW - ME 470 Capstone Design
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed font-ibm-plex-serif">
-              Undergraduate research project investigating heat transfer characteristics of a three-phase flow heat exchanger. Co-authored two papers - one currently under review and one in preparation.
+              Innovative spring pulley system arm sling for stroke rehabilitation. 
+              Developed in partnership with Carle College of Medicine Illinois to provide 
+              controlled range of motion therapy with adjustable resistance.
             </p>
           </motion.div>
 
@@ -298,56 +286,63 @@ const ETRLPoolBoilingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* Research Overview */}
+            {/* Project Overview */}
             <div className="bg-gray-900/50 rounded-xl p-8 border border-gray-700">
-              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Research Overview</h2>
+              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Project Overview</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                This research project focuses on investigating pool boiling heat transfer 
-                phenomena and critical heat flux (CHF) mechanisms. 
-                The study employs three different heat exhanger setups for saturated pool boiling, three-phase change pool boiling and a new setup for characterizing exchanget surface phenomena byheating through an IR medium.
+                SHELBOW is an innovative spring pulley system arm sling designed for stroke rehabilitation. 
+                This capstone project was developed in partnership with Carle College of Medicine Illinois 
+                to address the critical need for effective upper limb rehabilitation devices.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                Key research objectives include characterizing heat transfer coefficients, determining critical heat flux 
-                limits, and developing predictive models for enhanced heat exchanger design optimization.
+                The system leverages the benefits of both pulley mechanics and spring resistance to provide 
+                controlled range of motion therapy. When patients extend their arm, they experience controlled 
+                resistance against spring elongation, and feel a restoring force as the spring contracts 
+                when bringing their arm back up.
               </p>
             </div>
 
-            {/* Technical Specifications */}
+            {/* Design Specifications */}
             <div className="bg-gray-900/50 rounded-xl p-8 border border-gray-700">
-              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Technical Specifications</h2>
+              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Design Specifications</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Instrumentation</h3>
+                  <h3 className="text-lg font-semibold text-blue-400 mb-3">System Components</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• State-of-the-art calorimeter design with highest heat flux capabilities in the lab</li>
-                    <li>• Data acquisition through LabView program using NI DAQ</li>
-                    <li>• Ultra High FPS cameras to observe and study nucleate boiling phenomena on surface</li>
-                    <li>• Using IR through sapphire coated heaters to observe and investigate a translucent surface</li>
+                    <li>• Dual pulley system (bicep and elbow positioning)</li>
+                    <li>• Neoprene shoulder sleeve for patient-specific molding</li>
+                    <li>• Soft shell bicep constraint for motion control</li>
+                    <li>• Hard shell elbow/forearm with Velcro adjustability</li>
+                    <li>• Bowden cable routing through pulleys</li>
+                    <li>• Pretensioned spring with specified stiffness</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Research Parameters</h3>
+                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Safety & Control</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Validation of results from existing literature and past experiments</li>
-                    <li>• CHF limit determination</li>
-                    <li>• Three-phase flow characterization</li>
-                    <li>• Optimization of heat exchanging mechanism by employing surface finishes, treatment with chemicals, etc.</li>
+                    <li>• Spring enclosures for patient safety</li>
+                    <li>• Rounded edge pulleys to prevent injury</li>
+                    <li>• Guided cable paths to prevent snapback</li>
+                    <li>• BOA-type lacing adjustor for tension control</li>
+                    <li>• Constant tension through pretension load</li>
+                    <li>• Adjustable resistance across multiple points</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Methodology */}
+            {/* Development Process */}
             <div className="bg-gray-900/50 rounded-xl p-8 border border-gray-700">
-              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Research Methodology</h2>
+              <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Development Process</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
-                The experimental methodology employs controlled pool boiling conditions with systematic variation of 
-                key parameters including surface temperature, fluid properties, and heat flux density. Real-time data 
-                acquisition through LabVIEW enables precise measurement and analysis of thermal phenomena.
+                The project began with collaboration with Carle College of Medicine Illinois to understand 
+                the specific needs of stroke rehabilitation patients. The ideation process focused on creating a large number of designs and validating prototypes to ensure functionality.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                Advanced calorimeter design ensures accurate heat transfer measurements while maintaining experimental 
-                repeatability and statistical significance of results.
+                The prototype successfully demonstrated the spring pulley system concept, allowing the sponsor 
+                team to visualize and verify the mechanism from initial sketches to a real-world product. 
+                This approach prioritized high functionality, ergonomics, and materials while making strategic 
+                sacrifices on size, weight, and cost for maximum therapeutic impact.
               </p>
             </div>
 
@@ -356,22 +351,23 @@ const ETRLPoolBoilingPage = () => {
               <h2 className="text-2xl font-bold text-white mb-4 font-ibm-plex-serif">Key Accomplishments</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Design & Development</h3>
+                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Innovation & Design</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Built workspace for three experimental setups from scratch</li>
-                    <li>• Developed ceramic insulator for calorimeter block</li>
-                    <li>• Working on experimental optimization and improving the setup</li>
-                    <li>• Adding high resolution and high-speed video cameras to document and study surface phenomena
-                       </li>
+                    <li>• Novel spring pulley system for stroke rehabilitation and recovery</li>
+                    <li>• Patient-specific neoprene molding system to accomadate all body types</li>
+                    <li>• Dual-pulley positioning for optimal therapy</li>
+                    <li>• BOA-type tension adjustment mechanism</li>
+                    <li>• Comprehensive safety design features</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Research & Publications</h3>
+                  <h3 className="text-lg font-semibold text-blue-400 mb-3">Partnership & Impact</h3>
                   <ul className="text-gray-300 space-y-2">
-                    <li>• Co-author on two papers - one under peer-review at Wiley and the other in preparation</li>
-                    <li>• Currently testing and validating new pool boiling setups with existing literature and old data</li>
-                    <li>• Conducting extensive reproducibility tests on current setups to characterize mechanism behaviors</li>
-                    <li>• Incorporating peer review suggestions and feedback in current papers</li>
+                    <li>• Successful collaboration with Carle College of Medicine</li>
+                    <li>• Validated functionality through prototype testing</li>
+                    <li>• Patent in process for design and mechanism</li>
+                    <li>• Building prototypes for clinical trials</li>
+                    <li>• Designing final product with intent to mass produce while ensuring low cost</li>
                   </ul>
                 </div>
               </div>
@@ -416,7 +412,8 @@ const ETRLPoolBoilingPage = () => {
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-6 text-center">
           <p className="text-gray-400">
-            Energy Transport Research Laboratory (ETRL) - Summer 2024
+            ME 470 Capstone Design - University of Illinois Urbana-Champaign<br />
+            In partnership with Carle College of Medicine Illinois
           </p>
         </div>
       </footer>
@@ -434,4 +431,4 @@ const ETRLPoolBoilingPage = () => {
   );
 };
 
-export default ETRLPoolBoilingPage; 
+export default SHELBOWCapstonePage;

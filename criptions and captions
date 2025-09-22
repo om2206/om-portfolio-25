@@ -1,0 +1,39 @@
+[1mdiff --git a/app/projects/etrl-pool-boiling/page.tsx b/app/projects/etrl-pool-boiling/page.tsx[m
+[1mindex 4928de9..2b3cde0 100644[m
+[1m--- a/app/projects/etrl-pool-boiling/page.tsx[m
+[1m+++ b/app/projects/etrl-pool-boiling/page.tsx[m
+[36m@@ -57,28 +57,28 @@[m [mconst ETRLPoolBoilingPage = () => {[m
+       src: '/Lab view.png',[m
+       alt: 'Laboratory Setup and Equipment',[m
+       caption: 'LabView program overview for data acquisition and analysis',[m
+[31m-      modalCaption: 'State-of-the-art thermal research laboratory with advanced instrumentation'[m
+[32m+[m[32m      modalCaption: 'LabView program overview for data acquisition and analysis'[m
+     },[m
+     {[m
+       type: 'image',[m
+       src: '/Setup Images.jpg',[m
+       alt: 'Experimental Setup Configuration',[m
+       caption: 'Image of old experimental setup with zoomed in view of heat exchanger surface',[m
+[31m-      modalCaption: 'Complete apparatus configuration for pool boiling heat transfer studies'[m
+[32m+[m[32m      modalCaption: 'Image of old experimental setup with zoomed in view of heat exchanger surface'[m
+     },[m
+     {[m
+       type: 'image',[m
+       src: '/Pool boiling.jpg',[m
+       alt: 'Pool Boiling Phenomena',[m
+[31m-      caption: 'Pool boiling heat transfer visualization showing nucleate boiling patterns',[m
+[31m-      modalCaption: 'High-speed visualization of nucleate boiling and heat transfer mechanisms'[m
+[32m+[m[32m      caption: 'Pool boiling heat transfer setup to study nucleate boiling phenomena',[m
+[32m+[m[32m      modalCaption: 'Pool boiling heat transfer setup to study nucleate boiling phenomena'[m
+     },[m
+     {[m
+       type: 'video',[m
+       src: '/Surface Video.mp4',[m
+       alt: 'Surface Phenomena Visualization',[m
+[31m-      caption: 'Surface phenomena visualization during pool boiling heat transfer',[m
+[31m-      modalCaption: 'Surface phenomena visualization during pool boiling heat transfer'[m
+[32m+[m[32m      caption: 'Ultra high FPS footage of surface boiling phenomena under pool boiling conditions',[m
+[32m+[m[32m      modalCaption: 'Ultra high FPS footage of surface boiling phenomena under pool boiling conditions'[m
+     }[m
+   ];[m
+ [m

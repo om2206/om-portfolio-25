@@ -189,7 +189,7 @@ const Hero = () => {
               </div>
 
               <div 
-                className="lg:pl-8"
+                className="lg:pl-0 lg:ml-12"
               >
                 <div className="mb-8">
                   <p className="text-3xl md:text-4xl text-white font-ibm-plex-serif leading-relaxed">
@@ -216,14 +216,27 @@ const Hero = () => {
       {/* Projects Section */}
       <section id="projects" className="min-h-screen py-32">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 
               className="text-4xl md:text-5xl font-bold mb-16 text-center font-ibm-plex-serif"
             >
               Featured Projects
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {/* Horizontal Gallery - All Projects in One Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {/* SHELBOW Capstone Project Card */}
+              <ProjectCard
+                title="SHELBOW - ME 470 Capstone"
+                summary="Innovative spring pulley system arm sling for stroke rehabilitation developed in partnership with Carle College of Medicine Illinois."
+                images={[
+                  '/prototype.jpg',
+                  '/Prototype Sketch.jpg',
+                  '/Prototype video.mp4'
+                ]}
+                projectSlug="shelbow-me-470"
+              />
+
               {/* Hub-Carrier Project Card */}
               <ProjectCard
                 title="Hub-Carrier Module"
